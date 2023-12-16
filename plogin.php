@@ -11,7 +11,7 @@ if (isset($_POST['nik']) && isset($_POST['pass'])) {
 
     $result = $koneksi->query($query);
 
-    if ($result->num_rows == TRUE) {
+    if ($result->num_rows == FAlSE) {
         $user = $result->fetch_assoc();
 
         if (($password == $user['password']) && ($user['nik'])) {
@@ -21,10 +21,10 @@ if (isset($_POST['nik']) && isset($_POST['pass'])) {
 
         } else {
         // echo "Password salah.$password_hash";
-            header('Location: ../tie_uts/login.php?pesan= <strong>'.$password.'</strong>');
+            header('Location: ../tie_uts/login.php?pesan= <strong>Gagal Login</strong>');
         }
     } else {
-        header('Location: ../tie_uts/login.php?pesan= <strong>nik tidak ditemukan</strong>');
+        header('Location: ../tie_uts/login.php?pesan= <strong>Nik Tidak Ditemukan</strong>');
     }
 } else {
     header('Location: ../tie_uts/login.php?pesan= <strong>Gagal Login</strong>');
