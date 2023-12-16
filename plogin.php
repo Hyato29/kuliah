@@ -11,7 +11,7 @@ if (isset($_POST['nik']) && isset($_POST['pass'])) {
 
     $result = $koneksi->query($query);
 
-    if ($result->num_rows == FAlSE) {
+    if ($result->num_rows == TRUE) {
         $user = $result->fetch_assoc();
 
         if (($password == $user['password']) && ($user['nik'])) {
